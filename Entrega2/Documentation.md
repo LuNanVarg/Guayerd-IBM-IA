@@ -1,71 +1,120 @@
-# ETL y EDA Avanzada
+# 📘 Documentación del Proyecto — ETL, Feature Engineering y EDA Avanzado (Sprint 2)
 
-Propósito: 
-Realizar un proceso ETL (Extracción, Transformación y Carga) completo y aplicar Feature Engineering para unificar y enriquecer la data transaccional de la Tienda Aurelion, creando una base robusta para la Segmentación de Valor de Cliente (RFM) y el análisis de rentabilidad en la fase de Power BI.
+## 🎯 Propósito General
 
-Objetivos: 
-1. Garantizar la calidad y consistencia del 100% de los datos transaccionales.
+El objetivo de este sprint fue construir un **dataset consolidado, limpio y enriquecido**, integrando las fuentes transaccionales de la Tienda Aurelion y aplicando Feature Engineering para habilitar análisis estratégicos como la Segmentación RFM y la rentabilidad por producto.  
+Este dataset constituye la base para el Dashboard Interactivo en Power BI.
 
-2. Implementar la Recategorización Avanzada de productos.
+---
 
-3. Integrar Métricas RFM para la identificación del segmento VIP.
+# 1. 🧹 Proceso ETL y Limpieza de Datos
 
-4. Generar un Análisis Exploratorio de Datos (EDA) Avanzado que cubra las dimensiones de Cliente, Producto y Tendencias.
+La fase ETL garantizó la **calidad, coherencia y completitud** de todas las fuentes transaccionales.
 
-2. 🧹 Proceso ETL y Limpieza de Datos
+### 🔗 1.1 Unificación de Data  
+Se realizó una secuencia de *4 merges* utilizando pandas:
 
-Esta fase asegura la coherencia de los datos transaccionales.
+1. Detalle de Ventas  
+2. Ventas  
+3. Productos  
+4. Clientes  
 
-    Unificación de Data: Se realizó una secuencia de 4 merge (uniones) utilizando la librería pandas (Detalle de Ventas ➡️ Ventas ➡️ Productos ➡️ Clientes) para crear un único dataset a nivel de línea de detalle.
+El resultado fue un **dataset transaccional a nivel de línea de detalle**, almacenado como `consolidado.csv`.
 
-    Estandarización y Consistencia: Se aplicó limpieza a las columnas categóricas (ej. nombre_cliente, ciudad, medio_pago) mediante normalización de texto (.str.strip(), .str.title(), .str.lower()).
+### ✔️ 1.2 Estandarización y Consistencia
 
-    Recategorización Avanzada: Se implementó una lógica de corrección en la columna de categorías. Esto fue fundamental para corregir inconsistencias donde productos de consumo (ej. Bebidas) estaban clasificados incorrectamente como "Limpieza", creando la columna limpia y validada categoria_final.
+Se aplicaron transformaciones para asegurar uniformidad:
 
-3. 💡 Feature Engineering & Integración de Métricas
+- Normalización de texto: `.str.strip()`, `.str.title()`, `.str.lower()`
+- Corrección y estandarización de columnas como `nombre_cliente`, `ciudad`, `medio_pago`
+- Conversión a *datetime* en `fecha_venta` y `fecha_alta`
 
-Esta es la sección que justifica la robustez del entregable, validando la integración de datos de alto valor.
+### 🧽 1.3 Recategorización Avanzada de Productos  
+Se corrigieron inconsistencias donde productos de consumo (ej. Bebidas) estaban clasificados como “Limpieza”.  
+Se generó la columna validada: **`categoria_final`**.
 
-El dataset consolidado fue enriquecido mediante la fusión de dos fuentes externas de KPIs, utilizando claves primarias (id_cliente, nombre_producto):
+---
 
-    Métricas de Cliente (RFM): Se integraron variables fundamentales para la segmentación, renombradas para evitar conflictos: importe_total_cliente (Valor Monetario), total_compras_cliente (Frecuencia), y ticket_promedio_cliente (Ticket Promedio).
+# 2. ✨ Feature Engineering e Integración de Métricas
 
-    Métricas de Producto: Se incorporaron indicadores de rendimiento de producto como total_unidades_vendidas e importe_total_producto.
+El dataset fue enriquecido mediante la integración de métricas externas provenientes de:
 
-    Validación de Data: Se aplicó una conversión a tipo datetime a las columnas de fecha (fecha_venta, fecha_alta) para permitir el análisis temporal.
+- **metricas_cliente.csv**
+- **metricas_producto.csv**
 
-. 📊 Análisis Exploratorio de Datos (EDA) Avanzado
+### 👤 2.1 Métricas de Cliente (RFM)
 
-El análisis se centró en descubrir patrones de valor y segmentación utilizando una alta variedad de gráficos (Barra, Dispersión, Torta, Box Plot, Violin Plot, Heatmap, Histograma).
+Se incorporaron y renombraron para evitar conflictos:
 
-4.1 Análisis de Clientes y Segmentación (RFM)
-Scatter Plot (Gasto vs. Ticket):
-El gráfico de dispersión, dimensionado por frecuencia, muestra la segmentación de clientes. La concentración de puntos en la esquina superior derecha representa el Segmento VIP (Alto Gasto, Alta Frecuencia), el principal motor de ingresos.
+- `importe_total_cliente` (Monetario)
+- `total_compras_cliente` (Frecuencia)
+- `ticket_promedio_cliente` (Ticket Promedio)
 
-Heatmap Cliente vs. Categoría:
-Confirma el patrón de gasto de los Top 10 clientes: su consumo está fuertemente anclado en la categoría Alimentos, siendo Limpieza un gasto complementario y de menor volumen para este segmento.
+Estas variables habilitan la segmentación de valor, destacando el **Segmento VIP**.
 
-Top Clientes: 
-La tabla de los Top 10 Clientes por importe_total_cliente identifica a los individuos clave para las estrategias de retención.
+### 📦 2.2 Métricas de Producto  
+Se integraron:
 
-4.2 Análisis de Productos y Transaccional
-Distribución por Categoría (Torta):
-El Gráfico de Torta confirma el dominio de la categoría Alimentos sobre el importe total, validando la precisión de la recategorización.
+- `total_unidades_vendidas`
+- `importe_total_producto`
 
-Violin Plot:
-El Violin Plot (densidad de unidades vendidas) para el Top 5 de productos indica si los productos de mayor volumen se venden por unidad o en bultos, lo cual es vital para la logística de inventario.
+Estas métricas permiten identificar top sellers y analizar la rentabilidad por categoría.
 
-Box Plot Importe vs. Pago:
-El Box Plot revela la distribución del valor del ticket por medio de pago. Generalmente, los medios de pago electrónicos (Tarjeta, Transferencia) están asociados a los outliers de mayor importe.
+---
 
-Histograma/Línea de Tendencia:
-El Histograma confirma que la mayoría de las transacciones son de bajo valor, con una fuerte asimetría positiva. El Gráfico de Línea (Tendencia Mensual) muestra la evolución de las ventas en el tiempo, identificando picos y valles estacionales.
+# 3. 📊 EDA Avanzado
 
-5. 💡 Conclusiones y Oportunidades de Negocio:
-El resultado final es un entregable de alto nivel técnico que sienta las bases para la estrategia de negocio.
+El análisis exploró tres dimensiones principales: **Cliente**, **Producto** y **Tendencias**.  
+Los gráficos desarrollados incluyen: Barras, Dispersión, Torta, Box Plot, Violin Plot, Heatmap e Histogramas.
 
-Conclusión: Se logró un dataset completamente limpio y la integración del Feature Engineering (Métricas RFM) fue exitosa, permitiendo una segmentación de clientes clara y precisa. Todos los gráficos de la Sección 6 (EDA Avanzado) utilizan métricas validadas.
+---
 
-Oportunidad de Negocio Principal: Implementar una estrategia de venta cruzada y bundles dirigida a los clientes VIP (segmento de Alto Gasto) para incentivar la compra de productos de Limpieza y así diversificar sus patrones de consumo fuera de la categoría dominante (Alimentos).
+## 3.1 Análisis de Clientes y Segmentación
 
-Próximo Paso: El dataset enriquecido y segmentado está listo para ser exportado a Power BI para la creación del Dashboard Interactivo.
+#### 🔵 Scatter Plot (Gasto vs. Ticket Promedio)  
+Permite identificar el **Segmento VIP**: clientes con alta frecuencia y alto gasto.
+
+#### 🔥 Heatmap Cliente vs. Categoría  
+Los Top 10 clientes concentran su gasto principalmente en **Alimentos**, mostrando oportunidad para Venta Cruzada con Limpieza.
+
+#### 🏆 Ranking Top Clientes  
+La tabla identifica a los clientes de mayor valor monetario.
+
+---
+
+## 3.2 Análisis de Productos
+
+#### 🥧 Gráfico de Torta — Distribución por Categoría  
+Confirmación: **Alimentos domina el ingreso total**.
+
+#### 🎻 Violin Plot — Unidades Vendidas  
+Ayuda a entender si los productos top se venden por unidad o en bultos.
+
+#### 📦 Box Plot — Importe por Medio de Pago  
+Los medios electrónicos muestran los outliers de mayor importe.
+
+---
+
+## 3.3 Tendencias Temporales  
+El histograma confirma transacciones de bajo valor como mayoría.  
+La línea de tendencia muestra picos y estacionalidad de ventas.
+
+---
+
+# 4. 💡 Conclusiones y Oportunidades
+
+### ✔️ Conclusión General  
+El dataset resultante está completamente:
+
+- Limpio  
+- Consolidado  
+- Enriquecido con métricas RFM  
+- Validado para análisis comercial  
+
+### 🚀 Oportunidad Estratégica  
+Aplicar **venta cruzada y bundles** al segmento VIP, incentivando compras fuera de Alimentos (principalmente hacia Limpieza).
+
+### 🧭 Próximo Paso  
+Exportar el dataset final a Power BI para construir el Dashboard Interactivo.
+
+---
