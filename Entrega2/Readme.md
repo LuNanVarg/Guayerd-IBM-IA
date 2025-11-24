@@ -1,4 +1,4 @@
-# 🧭 PROYECTO AURELION - Entrega2
+# 🧭 PROYECTO AURELION - Entrega 2
 ## ETL Feature Engineering y Análisis Exploratorio de Datos (EDA)
 
 ---
