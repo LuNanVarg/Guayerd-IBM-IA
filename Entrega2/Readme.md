@@ -1,43 +1,136 @@
-# 🧭 PROYECTO AURELION - SPRINT 2: ETL y Análisis Exploratorio de Datos
+# 🧭 PROYECTO AURELION - SPRINT 2 
+## ETL Feature Engineering y Análisis Exploratorio de Datos (EDA)
 
-## 1. INTRODUCCIÓN
+---
 
-Este documento resume la metodología y los resultados clave obtenidos durante el Sprint 2 del Proyecto Aurelion, centrado en el pre-procesamiento, limpieza y enriquecimiento de los datos transaccionales. El objetivo principal fue crear un **Dataset Consolidado y Enriquecido** listo para el análisis estratégico y la visualización en Power BI.
+## 🔖 Badges
 
-## 2. METODOLOGÍA DEL SPRINT (ETL y Feature Engineering)
+![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-ETL-150458?logo=pandas)
+![Numpy](https://img.shields.io/badge/Numpy-Processing-013243?logo=numpy&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualización-11557C?logo=matplotlib)
+![Seaborn](https://img.shields.io/badge/Seaborn-EDA-4C72B0?logo=python)
+![ETL](https://img.shields.io/badge/ETL-Workflow-6A5ACD)
+![Data%20Analysis](https://img.shields.io/badge/Data%20Analysis-EDA-00BFA6)
 
-El Sprint 2 abordó la integración de los cuatro datasets fuente y el enriquecimiento de las variables para el Análisis de Valor de Cliente.
+---
 
-### 2.1 Proceso ETL (Extracción, Transformación y Carga)
+## 📘 Descripción General
 
-* **Fuentes de Datos:** Se utilizaron cuatro archivos CSV/Excel: `clientes`, `productos`, `ventas` y `detalle_ventas`.
-* **Unificación:** Se realizaron una secuencia de 4 operaciones `merge` (uniones) para consolidar la data transaccional a nivel de línea de detalle, resultando en el archivo `consolidado.csv`.
-* **Limpieza:** Se aplicaron transformaciones de estandarización de texto (minúsculas, mayúsculas, eliminación de espacios) en columnas como `nombre_cliente` y `medio_pago`.
+El **Sprint 2** del Proyecto Aurelion continúa el trabajo iniciado en la Entrega 1, avanzando hacia la creación de un **Dataset Consolidado y Enriquecido** a partir de múltiples fuentes transaccionales.  
 
-### 2.2 Feature Engineering y Recategorización Avanzada
+En esta fase se desarrolló:
 
-* **Recategorización de Productos:** Se implementó una **Recategorización Avanzada** (columna `categoria_final`) para corregir inconsistencias (ej. productos de consumo clasificados como "Limpieza"), asegurando la coherencia del análisis por categoría.
-* **Integración de Métricas RFM (Valor de Cliente):** Se enriqueció el dataset final fusionando métricas pre-calculadas (desde `metricas_cliente.csv`), incluyendo: **`importe_total_cliente`** y **`frecuencia_compra_cliente`**.
-* **Output Final:** El resultado es un **Dataset Enriquecido** (`df_final` en el notebook) que contiene todas las variables transaccionales y de valor.
+- Un proceso **ETL completo** (extracción, transformación y carga).  
+- Un **Feature Engineering avanzado**, incorporando métricas RFM y métricas de producto.  
+- Un **Análisis Exploratorio de Datos (EDA)** con visualizaciones para entender patrones, segmentación y comportamiento de compras.  
 
-## 3. ANÁLISIS EXPLORATORIO DE DATOS (EDA) AVANZADO
+Este sprint deja preparado el dataset final para su uso en **Power BI** o **Machine learning** y para el análisis estratégico del negocio.
 
-El EDA se centró en la exploración del valor de cliente y la rentabilidad del producto, utilizando una variedad de gráficos (Barra, Scatter, Torta, Box Plot, Violin Plot y Heatmap).
+---
 
-| Área de Análisis | Visualización Clave | Hallazgo Estratégico |
-| :--- | :--- | :--- |
-| **Segmentación Cliente (RFM)** | Scatter Plot (Gasto vs. Ticket) | Identificación del **Segmento VIP** (Alto Gasto, Alta Frecuencia) como foco prioritario de retención y marketing. |
-| **Rentabilidad de Categoría** | Pie Chart / Box Plot | Confirmación del **dominio de la categoría Alimentos** sobre el ingreso total. El Box Plot revela la dispersión del valor del ticket por `medio_pago`. |
-| **Patrones de Gasto** | Heatmap Cliente vs. Categoría | Se observa la fuerte concentración del gasto de los clientes VIP en Alimentos, indicando una clara oportunidad de **Venta Cruzada** con productos de Limpieza. |
-| **Inventario/Logística** | Violin Plot | Muestra la densidad de unidades vendidas por producto, ayudando a determinar si los productos de alto volumen se venden por unidad o en bultos. |
+## 🧩 Estructura del Sprint 2
 
-## 4. CONCLUSIONES Y PRÓXIMOS PASOS
 
-### 4.1 Conclusiones del Sprint 2
+Sprint2_Aurelion/
+│
+├── README.md # Este archivo (Sprint 2)
+├── Documentation.md  # Documentación técnica del ETL y EDA
+│
+├── Entrega_2_ETL_EDA_Final.ipynb  # Notebook completo con ETL + Feature Engineering + EDA
+│
+├── consolidado.csv  # Dataset unificado previo al enriquecimiento
+├── metricas_cliente.csv  # Métricas RFM por cliente
+├── metricas_producto.csv  # Métricas por producto
+│
+└── aurelion_consolidado_final.csv  # Dataset final enriquecido (df_final)
 
-El proyecto concluye con un dataset **robusto y validado**, listo para la etapa de visualización. La implementación del **Feature Engineering** y la **Recategorización Avanzada** permiten pasar de un análisis descriptivo básico a un análisis de segmentación y valor de negocio.
+---
 
-### 4.2 Próximos Pasos
+## ⚙️ Requisitos Previos
 
-1.  **Dashboarding (Power BI):** Exportar el dataset enriquecido (`df_final` / `aurelion_consolidado_final.csv`) para la creación de visualizaciones interactivas.
-2.  **KPIs Estratégicos:** Centrar la visualización en la rentabilidad por segmento de clientes y la estacionalidad de las categorías.
+Para ejecutar el ETL y el EDA necesitás tener instalados:
+
+```bash
+pip install pandas numpy matplotlib seaborn openpyxl
+pip install jupyter
+
+```
+---
+
+## 🚀 Cómo Ejecutar el Proyecto
+📓 1. Modo Notebook (Recomendado)
+
+1. Abrí Jupyter Notebook o JupyterLab.
+2. Cargá el archivo:
+
+       Entrega_2_ETL_EDA_Final.ipynb
+
+3. Ejecutá las celdas en orden para reproducir:
+* ETL
+* Feature Engineering
+* EDA
+* Exportación del dataset final
+
+---
+
+🔄 Metodología Aplicada
+🧹 Proceso ETL 
+* Integración mediante 4 merges.
+* Limpieza y estandarización de texto.
+* Conversión de columnas de fecha a `datetime`.
+* Exportación del dataset consolidado: `consolidado.csv`
+
+✨ Feature Engineering
+🧽 Recategorización Avanzada: creación de `categoria_final`
+* Métricas RFM
+* Métricas de producto
+* Exportación del dataset enriquecido (`aurelion_consolidado_final.csv`)
+
+---
+
+📊 Análisis Exploratorio de Datos (EDA)
+Se generaron visualizaciones clave:
+* Gráficos de barras
+* Pie Chart
+* Scatter Plot
+* Box Plot
+* Violin Plot
+* Heatmap
+* Histogramas
+* Tendencias temporales
+
+🧠 Hallazgos Principales
+```
+| Área                 | Insight                                     | Visualización |
+| -------------------- | ------------------------------------------- | ------------- |
+| Segmentación Cliente | Clientes VIP claramente identificados       | Scatter       |
+| Categorías           | Alimentos domina el ingreso                 | Pie / Box     |
+| Patrones de Consumo  | Oportunidad de venta cruzada                | Heatmap       |
+| Productos            | Diferencia entre venta por unidad o bulto   | Violin        |
+
+```
+---
+
+## 📊 Alcance
+* Dataset limpio y consolidado
+* Variables enriquecidas (RFM + producto)
+* Visualizaciones analíticas
+
+---
+
+## 🧱 Modelo del Proceso
+* ETL → Limpieza → Recategorización → Métricas → Dataset Final
+* Relaciones entre tablas validadas mediante merges
+* Dataset final listo para análisis estratégico
+
+---
+
+## 💬 Créditos
+
+Autora: Nancy Vargas
+Curso: Fundamentos de Inteligencia Artificial — Guayerd & IBM SkillsBuild
+Año: 2025
+Sprint 2: ETL + Feature Engineering + EDA
+
