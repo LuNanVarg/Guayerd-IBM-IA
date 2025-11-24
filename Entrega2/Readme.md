@@ -3,7 +3,7 @@
 
 ---
 
-## 🔖 Badges
+### 🔖 Badges
 
 ![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter&logoColor=white)
@@ -16,7 +16,7 @@
 
 ---
 
-## 📘 Descripción General
+### 📘 Descripción General
 
 El **Sprint 2** del Proyecto Aurelion continúa el trabajo iniciado en la Entrega 1, avanzando hacia la creación de un **Dataset Consolidado y Enriquecido** a partir de múltiples fuentes transaccionales.  
 
@@ -30,9 +30,9 @@ Este sprint deja preparado el dataset final para su uso en **Power BI** o **Mach
 
 ---
 
-## 🧩 Estructura del Sprint 2
+### 🧩 Estructura del Sprint 2
 
-
+```
 Sprint2_Aurelion/
 │
 ├── README.md # Este archivo (Sprint 2)
@@ -45,23 +45,22 @@ Sprint2_Aurelion/
 ├── metricas_producto.csv  # Métricas por producto
 │
 └── aurelion_consolidado_final.csv  # Dataset final enriquecido (df_final)
+```
 
 ---
 
-## ⚙️ Requisitos Previos
+### ⚙️ Requisitos Previos
 
 Para ejecutar el ETL y el EDA necesitás tener instalados:
 
 ```bash
 pip install pandas numpy matplotlib seaborn openpyxl
 pip install jupyter
-
 ```
 ---
 
-## 🚀 Cómo Ejecutar el Proyecto
-📓 1. Modo Notebook (Recomendado)
-
+### 🚀 Cómo Ejecutar el Proyecto
+📓 Modo Notebook (Recomendado)
 1. Abrí Jupyter Notebook o JupyterLab.
 2. Cargá el archivo:
 
@@ -75,14 +74,14 @@ pip install jupyter
 
 ---
 
-🔄 Metodología Aplicada
+### 🔄 Metodología Aplicada
 🧹 Proceso ETL 
 * Integración mediante 4 merges.
 * Limpieza y estandarización de texto.
 * Conversión de columnas de fecha a `datetime`.
 * Exportación del dataset consolidado: `consolidado.csv`
 
-✨ Feature Engineering
+### ✨ Feature Engineering
 🧽 Recategorización Avanzada: creación de `categoria_final`
 * Métricas RFM
 * Métricas de producto
@@ -90,7 +89,7 @@ pip install jupyter
 
 ---
 
-📊 Análisis Exploratorio de Datos (EDA)
+### 📊 Análisis Exploratorio de Datos (EDA)
 Se generaron visualizaciones clave:
 * Gráficos de barras
 * Pie Chart
@@ -101,7 +100,7 @@ Se generaron visualizaciones clave:
 * Histogramas
 * Tendencias temporales
 
-🧠 Hallazgos Principales
+### 🧠 Hallazgos Principales
 ```
 | Área                 | Insight                                     | Visualización |
 | -------------------- | ------------------------------------------- | ------------- |
@@ -113,14 +112,14 @@ Se generaron visualizaciones clave:
 ```
 ---
 
-## 📊 Alcance
+### 📊 Alcance
 * Dataset limpio y consolidado
 * Variables enriquecidas (RFM + producto)
 * Visualizaciones analíticas
 
 ---
 
-## 🧱 Modelo del Proceso
+### 🧱 Modelo del Proceso
 * ETL → Limpieza → Recategorización → Métricas → Dataset Final
 * Relaciones entre tablas validadas mediante merges
 * Dataset final listo para análisis estratégico
@@ -128,9 +127,15 @@ Se generaron visualizaciones clave:
 ---
 
 ## 💬 Créditos
-
+```
 Autora: Nancy Vargas
 Curso: Fundamentos de Inteligencia Artificial — Guayerd & IBM SkillsBuild
 Año: 2025
-Sprint 2: ETL + Feature Engineering + EDA
+💻 Lenguaje: Python 3.
+📚 Temática: Sprint 2: ETL + Feature Engineering + EDA
+🎨 Formatos: CLI + Jupyter Notebook
+
+```
+----
+
 
