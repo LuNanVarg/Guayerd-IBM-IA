@@ -44,7 +44,7 @@ Entrega2_Aurelion/
 ├── metricas_cliente.csv  # Métricas RFM por cliente
 ├── metricas_producto.csv  # Métricas por producto
 │
-└── aurelion_consolidado_final.csv  # Dataset final enriquecido (df_final)
+└── consolidado.csv  # Dataset final enriquecido (df_final)
 ```
 
 ---
