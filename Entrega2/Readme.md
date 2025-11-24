@@ -1,4 +1,4 @@
-# 🧭 PROYECTO AURELION - SPRINT 2 
+# 🧭 PROYECTO AURELION - Entrega2
 ## ETL Feature Engineering y Análisis Exploratorio de Datos (EDA)
 
 ---
@@ -18,7 +18,7 @@
 
 ### 📘 Descripción General
 
-El **Sprint 2** del Proyecto Aurelion continúa el trabajo iniciado en la Entrega 1, avanzando hacia la creación de un **Dataset Consolidado y Enriquecido** a partir de múltiples fuentes transaccionales.  
+El **Entrega2** (Sprint 2) del Proyecto Aurelion continúa el trabajo iniciado en la Entrega 1, avanzando hacia la creación de un **Dataset Consolidado y Enriquecido** a partir de múltiples fuentes transaccionales.  
 
 En esta fase se desarrolló:
 
@@ -30,12 +30,12 @@ Este sprint deja preparado el dataset final para su uso en **Power BI** o **Mach
 
 ---
 
-### 🧩 Estructura del Sprint 2
+### 🧩 Estructura del Entrega2
 
 ```
-Sprint2_Aurelion/
+Entrega2_Aurelion/
 │
-├── README.md # Este archivo (Sprint 2)
+├── README.md # Este archivo (Entrega2)
 ├── Documentation.md  # Documentación técnica del ETL y EDA
 │
 ├── Entrega_2_ETL_EDA_Final.ipynb  # Notebook completo con ETL + Feature Engineering + EDA
@@ -132,7 +132,7 @@ Autora: Nancy Vargas
 Curso: Fundamentos de Inteligencia Artificial — Guayerd & IBM SkillsBuild
 Año: 2025
 💻 Lenguaje: Python 3.
-📚 Temática: Sprint 2: ETL + Feature Engineering + EDA
+📚 Temática: Entrega2: ETL + Feature Engineering + EDA
 🎨 Formatos: CLI + Jupyter Notebook
 
 ```
