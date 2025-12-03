@@ -1,6 +1,6 @@
 
 
-# 🌌 Proyecto Aurelion
+# 🌌 Proyecto Aurelion - Entrega 1 (Sprint 1)
 
 ### Descripción general
 
