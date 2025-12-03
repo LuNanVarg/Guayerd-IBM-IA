@@ -48,73 +48,23 @@ Para ejecutar y reproducir el modelo necesitás tener instalados:
 pip install pandas numpy matplotlib seaborn scikit-learn
 pip install jupyter
 ```
----
-
-### 🚀 Cómo Ejecutar el Proyecto
-📓 **Modo Notebook (Análisis y Gráficos - Recomendado)**
-1. Abrí el archivo: Entrega3ML.ipynb.
-2. Ejecutá las celdas en orden. El notebook realizará el preprocesamiento, entrenará el modelo y generará las métricas y visualizaciones.
-
-**Modo Script (Validación de Modularidad)**
-1. Abrí la terminal en el directorio del proyecto.
-2. Ejecutá el script final:
-3. Ejecutá las celdas en orden para reproducir:
-* ETL
-* Feature Engineering
-* EDA
-* Exportación del dataset final
 
 ---
 
-### 🔄 Metodología Aplicada
-🧹 Proceso ETL 
-* Integración mediante 4 merges.
-* Limpieza y estandarización de texto.
-* Conversión de columnas de fecha a `datetime`.
-* Exportación del dataset consolidado: `consolidado.csv`
-
-### ✨ Feature Engineering
-🧽 Recategorización Avanzada: creación de `categoria_final`
-* Métricas RFM
-* Métricas de producto
-* Exportación del dataset enriquecido (`aurelion_consolidado_final.csv`)
-
----
-
-### 📊 Análisis Exploratorio de Datos (EDA)
-Se generaron visualizaciones clave:
-* Gráficos de barras
-* Pie Chart
-* Scatter Plot
-* Box Plot
-* Violin Plot
-* Heatmap
-* Histogramas
-* Tendencias temporales
-
-### 🧠 Hallazgos Principales
+### 📊 Modelo y Hallazgos Principales
 ```
-| Área                 | Insight                                     | Visualización |
-| -------------------- | ------------------------------------------- | ------------- |
-| Segmentación Cliente | Clientes VIP claramente identificados       | Scatter       |
-| Categorías           | Alimentos domina el ingreso                 | Pie / Box     |
-| Patrones de Consumo  | Oportunidad de venta cruzada                | Heatmap       |
-| Productos            | Diferencia entre venta por unidad o bulto   | Violin        |
+| Métrica    | Valor           | Rol en el Negocio                                   |
+| ---------- | --------------- | --------------------------------------------------- |
+| R²         | 0.8333          | Capacidad explicativa (Alto rendimiento).           |
+| MAPE       | 46.34%          | Error promedio porcentual de la predicción.         |
+| Impulsor 1 | cantidad        | Factor de mayor impacto positivo en el gasto final. |
+| Impulsor 2 | precio_unitario | Segundo factor de mayor impacto.                    |
 
 ```
 ---
 
-### 📊 Alcance
-* Dataset limpio y consolidado
-* Variables enriquecidas (RFM + producto)
-* Visualizaciones analíticas
-
----
-
-### 🧱 Modelo del Proceso
-* ETL → Limpieza → Recategorización → Métricas → Dataset Final
-* Relaciones entre tablas validadas mediante merges
-* Dataset final listo para análisis estratégico
+### 🧠 Interpretación (Coeficientes)
+El análisis de coeficientes lineal confirma que el volumen de la compra (cantidad) es el determinante más importante del importe de venta, siendo ≈2554 unidades monetarias más influyente que cualquier otra variable por unidad. El modelo permite cuantificar el impacto de los medios de pago (qr, tarjeta) y las categorías (Limpieza) en la generación de ingresos.
 
 ---
 
@@ -124,8 +74,6 @@ Autora: Nancy Vargas
 Curso: Fundamentos de Inteligencia Artificial — Guayerd & IBM SkillsBuild
 Año: 2025
 💻 Lenguaje: Python 3.
-📚 Temática: Entrega2: ETL + Feature Engineering + EDA
-🎨 Formatos: CLI + Jupyter Notebook
-
+📚 Temática: Entrega 3: Regresión Lineal Múltiple.
 ```
 ----
