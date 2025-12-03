@@ -139,6 +139,11 @@ Construir una solución integral basada en datos aplicando:
 
 ---
 
+## 🙌 Agradecimientos
+A mi profe *Mirta Gladys Julio* por su acompañamiento y guía durante toda la cursada.
+
+---
+
 ## 💬 Créditos
 ```
 Autora: Nancy Vargas  
